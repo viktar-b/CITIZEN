@@ -22,6 +22,7 @@ public class DataLoader {
     public void loadData() {
         try {
             BufferedReader lottoData = new BufferedReader(new FileReader(filePath)); 
+            
             //skipping row 0 
             String line = lottoData.readLine(); 
             
@@ -48,16 +49,18 @@ public class DataLoader {
     private String[] getArray(String line) {
         String[] rowData = line.split(",");
 
-        //sanity checks before returning string 
+        //general checks for row validation
         if (rowData.length != 11) return null;
+
         for (int i = 1; i < 8; i++) {
-            if (isInteger(rowData[i])) return null;
+            if (!isInteger(rowData[i])) return null;
+
+            Integer number = Integer.parseInt(rowData[i]);
+            if (number < 1 || number > 59) return null; 
         }
 
         return rowData; 
     }
-
-    
 
     private void sortHashMap(){
         List<Map.Entry<Integer, Integer> > list =
@@ -75,7 +78,6 @@ public class DataLoader {
     }
 
     private static boolean isInteger(String str) {
-        
         if (str == null) return false;
         
         int length = str.length();
@@ -86,7 +88,7 @@ public class DataLoader {
             if (length == 1) return false;
             i = 1;
         }
-        
+
         for (; i < length; i++) {
             char c = str.charAt(i);
             if (c < '0' || c > '9') return false;
