@@ -9,9 +9,11 @@ public class Main {
         var keys = ballsCount.keySet().iterator();
         for (int i = 0; i < 6; i++) {
             var keyName = keys.next();
-            System.out.println(keyName);
-            System.out.println(ballsCount.get(keyName));
-            System.out.println("----");
+            System.out.println(String.format("%s: Ball number - %s. No of occurrences - %s.", 
+                i+1,
+                keyName,
+                ballsCount.get(keyName)
+            ));
         }
         
     }
