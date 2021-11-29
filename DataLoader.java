@@ -19,7 +19,7 @@ public class DataLoader {
         return sortedHashMap;
     }
 
-    public void loadData() {
+    private void loadData() {
         try {
             BufferedReader lottoData = new BufferedReader(new FileReader(filePath)); 
             
@@ -63,11 +63,14 @@ public class DataLoader {
     }
 
     private void sortHashMap(){
-        List<Map.Entry<Integer, Integer> > list =
-            new LinkedList<Map.Entry<Integer, Integer> >(unsortedBallsCount.entrySet());
+        List<Map.Entry<Integer, Integer>> list = new LinkedList<>(
+            unsortedBallsCount.entrySet()
+        );
 
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
-            public int compare(Map.Entry<Integer, Integer> o1,Map.Entry<Integer, Integer> o2){
+            public int compare(
+                Map.Entry<Integer, Integer> o1,
+                Map.Entry<Integer, Integer> o2){
                 return (o2.getValue()).compareTo(o1.getValue());
             }
         });
