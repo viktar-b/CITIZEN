@@ -92,7 +92,6 @@ public class DataLoader {
         int i = 0;
         //check if negative 
         if (str.charAt(0) == '-') {
-            System.out.print(s);
             if (length == 1) return false;
             i = 1;
         }
