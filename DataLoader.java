@@ -1,4 +1,7 @@
 import java.util.HashMap;
+
+import javax.sound.sampled.SourceDataLine;
+
 import java.io.*;
 import java.util.*;  
 
@@ -87,11 +90,14 @@ public class DataLoader {
         if (length == 0) return false;
         
         int i = 0;
+        //check if negative 
         if (str.charAt(0) == '-') {
+            System.out.print(s);
             if (length == 1) return false;
             i = 1;
         }
 
+        //check if within ascii range
         for (; i < length; i++) {
             char c = str.charAt(i);
             if (c < '0' || c > '9') return false;
