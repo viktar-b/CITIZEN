@@ -1,7 +1,3 @@
-import java.util.HashMap;
-
-import javax.sound.sampled.SourceDataLine;
-
 import java.io.*;
 import java.util.*;  
 
@@ -9,7 +5,7 @@ public class DataLoader {
 
     private String filePath; 
     private HashMap<Integer, Integer> unsortedBallsCount = new HashMap<>();
-    private HashMap<Integer, Integer> sortedHashMap = new LinkedHashMap<Integer, Integer>();
+    private HashMap<Integer, Integer> sortedHashMap = new LinkedHashMap<>();
     
 
     public DataLoader(String filePath) {
